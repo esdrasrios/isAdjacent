@@ -65,7 +65,9 @@ expect(result).toEqual(yourExpectedResultHere);
 
 });
 ```
-**if you preffer to not run the test using Jest, you can call the function adding to  adjValues.js** 
+**if you preffer to not run the test, you can call the function adding to  adjValues.js** 
 ```
  console.log(solution([0, 3, 3, 12, 5, 3, 7, 1])); // 5
  ```
+**live version on repl.it**
+https://repl.it/repls/KindheartedWorrisomeOpengl
