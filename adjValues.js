@@ -1,42 +1,15 @@
 function solution(arr) {
   maxAdjacentValue = -2;
-  adjacentAbsoluteValue = 0;
   const sortedArr = arr.slice().sort(function(a, b) {
     return a - b;
   });
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j <= arr.length - 1; j++) {
-      if (isAdj(arr, sortedArr, i, j) == true) {
-        adjacentAbsoluteValue = Math.abs(arr[i] - arr[j]);
-        if (maxAdjacentValue < adjacentAbsoluteValue) {
-          maxAdjacentValue = adjacentAbsoluteValue;
-        };
-      };
-    };
+
+  for (let i = 0; i < sortedArr.length - 1; i++) {
+    diff = Math.abs(sortedArr[i + 1] - sortedArr[i]);
+    maxAdjacentValue = Math.max(diff, maxAdjacentValue);
+    console.log(diff, maxAdjacentValue)
   };
   return maxAdjacentValue;
 };
 
-function isAdj(arr, sortedArr, index1, index2) {
-
-
-  P = arr[index1];
-  Q = arr[index2];
-
-  I1 = sortedArr.indexOf(P);
-  I2 = sortedArr.indexOf(Q);
-
-  minNumber = Math.min(I1, I2);
-  maxNumber = Math.max(I1, I2);
-
-  for (let i = minNumber; i < maxNumber; i++) {
-    if (sortedArr[i] != P && sortedArr[i] != Q) {
-      return false;
-    };
-  };
-  return true;
-};
-
 module.exports = solution;
-
-
