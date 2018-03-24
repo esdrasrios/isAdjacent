@@ -1,9 +1,12 @@
 function solution(arr) {
   maxAdjacentValue = -2;
   adjacentAbsoluteValue = 0;
+  const sortedArr = arr.slice().sort(function(a, b) {
+    return a - b;
+  });
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j <= arr.length - 1; j++) {
-      if (isAdj(arr, i, j) == true) {
+      if (isAdj(arr, sortedArr, i, j) == true) {
         adjacentAbsoluteValue = Math.abs(arr[i] - arr[j]);
         if (maxAdjacentValue < adjacentAbsoluteValue) {
           maxAdjacentValue = adjacentAbsoluteValue;
@@ -14,10 +17,8 @@ function solution(arr) {
   return maxAdjacentValue;
 };
 
-function isAdj(arr, index1, index2) {
-  const sortedArr = arr.slice().sort(function(a, b) {
-    return a - b;
-  });
+function isAdj(arr, sortedArr, index1, index2) {
+
 
   P = arr[index1];
   Q = arr[index2];

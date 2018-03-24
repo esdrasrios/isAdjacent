@@ -15,7 +15,7 @@ describe('test', () => {
     expect(result).toEqual(4);
   });
   it('return maxAdj in the arr (expected -2)', () => {
-    const result = solution([1, 1]);
+    const result = solution([1]);
     expect(result).toEqual(-2);
   });
 });
